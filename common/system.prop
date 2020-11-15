@@ -1,0 +1,30 @@
+# This file will be read by resetprop
+# 示例: 更改 dpi
+# ro.sf.lcd_density=410
+# vendor.display.lcd_density=410
+sys.haptic.down.weak=9
+sys.haptic.down.normal=15
+sys.haptic.down.strong=32
+sys.haptic.runin=20
+sys.autosuspend.timeout=100000
+persist.logd.limit=Off
+persist.logd.size=65536
+persist.logd.size.crash=1M
+persist.logd.size.radio=1M
+persist.logd.size.system=1M
+persist.mm.enable.prefetch=false
+log.tag.stats_log=E
+ro.logd.size=64K
+ro.logd.size.stats=64K
+persist.sys.force_sw_gles=0
+ro.zygote.disable_gl_preload=false
+vendor.audio.hw.aac.encoder=true
+sdm.drop_skewed_vsync=0
+ro.vendor.qti.sys.fw.bservice_enable=false
+ro.sys.fw.bg_apps_limit=80
+ro.vendor.qti.sys.fw.bg_apps_limit=80
+vendor.usb.dialog=0
+miui.usb.dialog=0
+ro.miui.has_real_blur=1
+ro.miui.has_security_keyboard=0
+ro.sys.sdcardfs=true
