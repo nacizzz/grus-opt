@@ -11,10 +11,10 @@ chmod 644 $big_up
 chmod 644 $big_down
 chmod 644 $big_hispeed
 #应用参数
-echo 1000 > $little_up
-echo 20000 > $little_down
+echo 500 > $little_up
+echo 10000 > $little_down
 echo 500 > $big_up
-echo 20000 > $big_down
+echo 10000 > $big_down
 echo 85 > $big_hispeed
 #设置权限
 chmod 444 $little_up
