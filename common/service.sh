@@ -38,5 +38,5 @@ killall -9 thermanager 2>/dev/null
 killall -9 thermalserviced 2>/dev/null
 killall -9 thermal-engine 2>/dev/null
 killall -9 mi_thermald 2>/dev/null
-#应用省电配置
+#应用配置(默认省电)
 sh /system/vendor/bin/powersave.sh
