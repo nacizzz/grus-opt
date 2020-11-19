@@ -48,7 +48,8 @@ REPLACE="
 
 print_modname() {
   ui_print "*******************************"
-  ui_print "        作者：leleleha        "
+  ui_print "        作者：leleleha          "
+  ui_print "        当前版本:v1.3           "
   ui_print "*******************************"
 }
 
