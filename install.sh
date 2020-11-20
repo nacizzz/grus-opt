@@ -42,14 +42,13 @@ LATESTARTSERVICE=true
 
 # Construct your own list here
 REPLACE="
-/system/data-app
-/system/vendor/data-app
 "
 
 print_modname() {
   ui_print "*******************************"
-  ui_print "        作者：leleleha          "
+  ui_print "        作者：酷安@leleleha      "
   ui_print "        当前版本:v1.3           "
+  ui_print "更新日志及其它使用事项可以在酷安动态找到"
   ui_print "*******************************"
 }
 
