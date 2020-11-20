@@ -30,6 +30,7 @@ killall -9 com.android.deskclock 2>/dev/null
 killall -9 com.android.providers.calendar 2>/dev/null
 killall -9 com.miui.core 2>/dev/null
 killall -9 com.miui.notes 2>/dev/null
+killall -9 com.qualcomm.qti.poweroffalarm 2/dev/null
 #杀死温控进程（并不是真正的关掉温控）
 killall -9 vendor.qti.hardware.perf@1.0-service 2>/dev/null
 killall -9 vendor.qti.hardware.perf@2.0-service 2>/dev/null
