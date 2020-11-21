@@ -13,7 +13,7 @@ chmod 644 $big_up
 chmod 644 $big_down
 chmod 644 $big_hispeed
 #应用参数
-echo 500 > $little_up
+echo 1000 > $little_up
 echo 10000 > $little_down
 echo 90 > $little_hispeed
 echo 500 > $big_up
