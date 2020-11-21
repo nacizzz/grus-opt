@@ -52,6 +52,24 @@ print_modname() {
   ui_print "*******************************"
 }
 
+  pm disable com.xiaomi.xmsf
+  pm disable com.xiaomi.simactivate.service
+  pm disable com.xiaomi.metoknlp
+  pm disable com.xiaomi.location.fused
+  pm disable com.wapi.wapicertmanage
+  pm disable com.unionpay.tsmservice.mi
+  pm disable com.qualcomm.wfd.service
+  pm disable com.qualcomm.qti.poweroffalarm
+  pm disable com.miui.yellowpage
+  pm disable com.miui.backup
+  pm disable com.miui.cloudbackup
+  pm disable com.miui.cloudservice
+  pm disable com.miui.micloudsync
+  pm disable com.miui.mishare.connectivity
+  pm disable com.miui.phrase
+  pm disable com.miui.securityadd
+  ui_print "已冻结部分应用"
+
 # Copy/extract your module files into $MODPATH in on_install.
 
 set_permissions() {
