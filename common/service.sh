@@ -40,28 +40,4 @@ killall -9 thermalserviced 2>/dev/null
 killall -9 thermal-engine 2>/dev/null
 killall -9 mi_thermald 2>/dev/null
 #开机应用配置
-panel=/storage/emulated/0/Android/panel_grus-opt.txt
-powersave=/vendor/bin/powersave.sh
-balance=/vendor/bin/balance.sh
-performance=/vendor/bin/balance.sh
-
-normal_panel_powersave=`$BusyBox grep '.*normal_power_mode=powersave*' "$panel"`
-if 
-[ $normal_panel_powersave == normal_power_mode=powersave ];
-then 
-sh $powersave
-fi
-
-normal_panel_balance=`$BusyBox grep '.*normal_power_mode=balance*' "$panel"`
-if 
-[ $normal_panel_balance == normal_power_mode=balance ];
-then 
-sh $balance
-fi
-
-normal_panel_performance=`$BusyBox grep '.*normal_power_mode=performance*' "$panel"`
-if 
-[ $normal_panel_performance == normal_power_mode=performance ];
-then 
-sh $performance
-fi
+#因某些原因，已移动至xposededge执行
