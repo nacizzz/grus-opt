@@ -52,7 +52,6 @@ print_modname() {
   ui_print "*******************************"
 }
 
-  pm disable com.xiaomi.xmsf
   pm disable com.xiaomi.simactivate.service
   pm disable com.xiaomi.metoknlp
   pm disable com.xiaomi.location.fused
@@ -61,14 +60,36 @@ print_modname() {
   pm disable com.qualcomm.wfd.service
   pm disable com.qualcomm.qti.poweroffalarm
   pm disable com.miui.yellowpage
-  pm disable com.miui.backup
-  pm disable com.miui.cloudbackup
-  pm disable com.miui.cloudservice
-  pm disable com.miui.micloudsync
   pm disable com.miui.mishare.connectivity
   pm disable com.miui.phrase
-  pm disable com.miui.securityadd
   ui_print "已冻结部分应用"
+  
+#创建配置文件
+  touch /storage/emulated/0/Android/panel_grus-opt.txt
+  echo "
+  #这是小米9se优化模块的配置文件
+
+  #如果你是在不知道的情况下看到此文件
+
+  #请移至酷安@leleleha的动态查看更新日志和注意事项
+
+  
+
+  
+
+  #修改开机默认性能配置
+
+  #powersave省电 balance平衡 performance性能(费电)
+
+  #默认省电
+
+  normal_power_mode=powersave
+
+  
+
+  
+
+  #下版本加入脱离xposed edge及修改游戏/高性能应用性能配置和在模块内完成切换性能模式的操作" > /storage/emulated/0/Android/panel_grus-opt.txt
 
 # Copy/extract your module files into $MODPATH in on_install.
 
