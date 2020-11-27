@@ -83,6 +83,10 @@ print_modname() {
 
   #下版本加入脱离xposed edge及修改游戏/高性能应用性能配置和在模块内完成切换性能模式的操作" > /storage/emulated/0/Android/panel_grus-opt.txt
 
+#应用uperf开机默认配置
+#没什么用 反正也是会被覆盖的
+  echo "default_mode=powersave" > /storage/emulated/0/Android/panel_uperf.txt
+
 # Copy/extract your module files into $MODPATH in on_install.
 
 set_permissions() {
