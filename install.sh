@@ -70,18 +70,14 @@ print_modname() {
 #创建配置文件
   touch /storage/emulated/0/Android/panel_grus-opt.txt
   echo "
-  #这是小米9se优化模块的配置文件
-  #如果你是在不知道的情况下看到此文件
-  #请移至酷安@leleleha的动态查看更新日志和注意事项
+#这是小米9se优化模块的配置文件
+#如果你是在不知道的情况下看到此文件
+#请移至酷安@leleleha的动态查看更新日志和注意事项
   
-
-  #修改开机默认性能配置
-  #powersave省电 balance平衡 performance性能(费电)
-  #默认省电
-  normal_power_mode=powersave
-
-
-  #下版本加入脱离xposed edge及修改游戏/高性能应用性能配置和在模块内完成切换性能模式的操作" > /storage/emulated/0/Android/panel_grus-opt.txt
+#修改开机默认性能配置
+#powersave省电 balance平衡 performance性能(费电)
+#默认省电
+normal_power_mode=powersave" > /storage/emulated/0/Android/panel_grus-opt.txt
 
 #应用uperf开机默认配置
 #没什么用 反正也是会被覆盖的
