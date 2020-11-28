@@ -30,4 +30,10 @@ killall -9 thermalserviced 2>/dev/null
 killall -9 thermal-engine 2>/dev/null
 killall -9 mi_thermald 2>/dev/null
 #开机应用配置
-sh /vendor/bin/normal.sh
+log_file=/cache/grus-opt.log
+function log()
+{
+    echo "$1" >> $log_file
+}
+echo -n '' > $log_file
+sh /vendor/bin/normal.sh >> $log_file 2>&1
