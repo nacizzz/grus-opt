@@ -8,16 +8,6 @@ MODDIR=${0%/*}
 # 下面，你也可以添加一些自己的代码
 #核心控制
 echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
-#vm参数
-echo 1 > /proc/sys/vm/laptop_mode
-echo 3 > /proc/sys/vm/dirty_background_ratio
-echo 30 > /proc/sys/vm/overcommit_ratio
-echo 100 > /proc/sys/vm/swap_ratio
-echo 100 > /proc/sys/vm/vfs_cache_pressure
-echo 10 > /proc/sys/vm/dirty_ratio
-echo 3 > /proc/sys/vm/page-cluster
-echo 1000 > /proc/sys/vm/dirty_expire_centisecs
-echo 2000 > /proc/sys/vm/dirty_writeback_centisecs
 #杀掉不必要的进程
 killall -9 com.miui.guardprovider 2>/dev/null
 killall -9 com.android.mms 2>/dev/null
@@ -40,4 +30,4 @@ killall -9 thermalserviced 2>/dev/null
 killall -9 thermal-engine 2>/dev/null
 killall -9 mi_thermald 2>/dev/null
 #开机应用配置
-#因某些原因，已移动至xposededge执行
+sh /vendor/bin/normal.sh
