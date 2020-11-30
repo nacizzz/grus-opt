@@ -6,8 +6,9 @@ performance=/vendor/bin/performance.sh
 normal_panel_powersave=`$BusyBox grep 'normal_power_mode=powersave' "$panel1"`
 normal_panel_balance=`$BusyBox grep 'normal_power_mode=balance' "$panel1"`
 normal_panel_performance=`$BusyBox grep 'normal_power_mode=performance' "$panel1"`
+date=`date`
 
-date
+echo "[$date]"
 
 function set_default_config() {
 echo "等待系统启动"
