@@ -81,7 +81,7 @@ normal_power_mode=powersave" > /storage/emulated/0/Android/panel_grus-opt.txt
 
 #应用uperf开机默认配置
 #在开机时以最高性能运行，减少卡顿
-  echo "default_mode=powersave" > /storage/emulated/0/Android/panel_uperf.txt
+  echo "default_mode=performance" > /storage/emulated/0/Android/panel_uperf.txt
 
 # Copy/extract your module files into $MODPATH in on_install.
 
