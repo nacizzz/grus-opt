@@ -1,8 +1,3 @@
-# This file will be read by resetprop
-# 示例: 更改 dpi
-# ro.sf.lcd_density=410
-# vendor.display.lcd_density=410
-
 #不知道哪来的玄学代码(?)
 sys.haptic.down.weak=9
 sys.haptic.down.normal=15
