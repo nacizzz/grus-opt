@@ -1,6 +1,6 @@
 id=mi9se
 name=只是一个模块
-version=2.0.3
-versionCode=9
+version=2.0.4
+versionCode=10
 author=leleleha
 description=在开机时应用一些参数，提供性能模式切换，并加入了一些玄学优化，可在内置存储/Android/panel_grus-opt下修改开机默认性能配置，运行日志在/cache/grus-opt.log
