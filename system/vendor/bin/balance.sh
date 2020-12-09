@@ -32,7 +32,7 @@ chmod 444 $little_hispeed
 chmod 444 $big_up
 chmod 444 $big_down
 chmod 444 $big_hispeed
-chmod 644 $cpu4_online
-chmod 644 $cpu5_online
+chmod 444 $cpu4_online
+chmod 444 $cpu5_online
 #应用uperf模式
 echo balance > /data/uperf_powermode
