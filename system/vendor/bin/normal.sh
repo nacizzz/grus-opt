@@ -30,6 +30,7 @@ do
 sleep 3
 if [[ -f $panel ]];
 then
+touch $panel1
 cp $panel $panel1
 break
 echo "加载配置成功"
