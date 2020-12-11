@@ -30,7 +30,7 @@ do
 sleep 3
 if [[ -f $panel ]];
 then
-rm -rf $panel1
+echo "正在加载配置..."
 touch $panel1
 cp $panel $panel1
 break
@@ -49,21 +49,21 @@ echo " "
 
 if [[ $normal_panel_powersave == normal_power_mode=powersave ]];
 then
-sh $powersave
+sh $powersave 2>/dev/null
 echo "应用省电配置成功"
 echo " "
 fi
 
 if [[ $normal_panel_balance == normal_power_mode=balance ]];
 then
-sh $balance
+sh $balance 2>/dev/null
 echo "应用平衡配置成功"
 echo " "
 fi
 
 if [[ $normal_panel_performance == normal_power_mode=performance ]];
 then
-sh $performance
+sh $performance 2>/dev/null
 echo "应用性能配置成功"
 echo " "
 fi
