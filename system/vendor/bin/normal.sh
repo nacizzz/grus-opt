@@ -30,6 +30,7 @@ do
 sleep 3
 if [[ -f $panel ]];
 then
+rm -rf $panel1
 touch $panel1
 cp $panel $panel1
 break
