@@ -66,7 +66,7 @@ print_modname() {
   pm disable com.miui.phrase
   ui_print "已冻结部分应用"
   
-  if [[ -f /data/adb/modules/uperf/module.prop ]]
+  if [[ -f /data/adb/modules/uperf/module.prop ]];
   then
   ui_print "      检测到已安装uperf      "
   else
