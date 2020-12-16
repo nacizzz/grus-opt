@@ -35,4 +35,4 @@ chmod 444 $big_hispeed
 chmod 444 $cpu4_online
 chmod 444 $cpu5_online
 #应用uperf模式
-echo performance > /data/uperf_powermode
+echo balance > /data/uperf_powermode
