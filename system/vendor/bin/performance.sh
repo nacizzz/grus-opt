@@ -17,11 +17,11 @@ chmod 644 $big_hispeed
 chmod 644 $cpu4_online
 chmod 644 $cpu5_online
 #应用参数
-echo 1000 > $little_up
-echo 10000 > $little_down
+echo 500 > $little_up
+echo 20000 > $little_down
 echo 90 > $little_hispeed
 echo 500 > $big_up
-echo 10000 > $big_down
+echo 20000 > $big_down
 echo 85 > $big_hispeed
 echo 1 > $cpu4_online
 echo 1 > $cpu5_online
@@ -35,4 +35,4 @@ chmod 444 $big_hispeed
 chmod 444 $cpu4_online
 chmod 444 $cpu5_online
 #应用uperf模式
-echo balance > /data/uperf_powermode
+echo performance > /data/uperf_powermode
