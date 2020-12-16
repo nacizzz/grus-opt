@@ -40,6 +40,16 @@ echo " "
 fi
 done
 
+echo "正在加载uperf配置"
+echo " "
+if [[ -f /data/adb/modules/mi9se/file/cfg_uperf.json ]];
+then
+cp /data/adb/modules/mi9se/file/cfg_uperf.json /data/adb/modules/uperf/config/cfg_uperf.json
+else
+echo "未安装uperf，加载失败"
+echo " "
+fi
+
 echo "开始应用配置"
 echo " "
 panel1=/data/adb/modules/mi9se/file/panel_grus-opt.txt
