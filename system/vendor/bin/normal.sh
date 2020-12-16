@@ -45,6 +45,8 @@ echo " "
 if [[ -f /data/adb/modules/mi9se/file/cfg_uperf.json ]];
 then
 cp /data/adb/modules/mi9se/file/cfg_uperf.json /data/adb/modules/uperf/config/cfg_uperf.json
+echo "加载uperf配置成功"
+echo " "
 else
 echo "未安装uperf，加载失败"
 echo " "
@@ -53,33 +55,35 @@ fi
 echo "开始应用配置"
 echo " "
 panel1=/data/adb/modules/mi9se/file/panel_grus-opt.txt
-normal_panel_powersave=`$BusyBox grep 'normal_power_mode=powersave' "$panel1"`
-normal_panel_balance=`$BusyBox grep 'normal_power_mode=balance' "$panel1"`
-normal_panel_performance=`$BusyBox grep 'normal_power_mode=performance' "$panel1"`
+config="/storage/emulated/0/Android/panel_grus-opt.txt"
 
-if [[ $normal_panel_powersave == normal_power_mode=powersave ]];
+function get_prop() {
+  cat $config | grep -v '^#' | grep "^$1=" | cut -f2 -d '='
+}
+power_config=$(get_prop normal_power_mode)
+echo "$power_config" > /data/uperf_powermode
+
+if [[ $get_prop == powersave ]];
 then
 sh $powersave 2>/dev/null
 echo "应用省电配置成功"
 echo " "
 fi
 
-if [[ $normal_panel_balance == normal_power_mode=balance ]];
+if [[ $get_prop == balance ]];
 then
 sh $balance 2>/dev/null
 echo "应用平衡配置成功"
 echo " "
 fi
 
-if [[ $normal_panel_performance == normal_power_mode=performance ]];
+if [[ $get_prop == performance ]];
 then
 sh $performance 2>/dev/null
 echo "应用性能配置成功"
 echo " "
 fi
 
-echo "两条报错为正常现象"
-echo " "
 echo "全部完成"
 }
 
