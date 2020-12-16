@@ -1,0 +1,429 @@
+{
+    "meta": {
+        "name": "sdm710/sdm712 20200516",
+        "author": "yc@coolapk",
+        "features": "touch cpuload render standby sfanalysis"
+    },
+    "common": {
+        "noteSwitchInode": "接收性能模式切换的inode节点",
+        "switchInode": "/data/uperf_powermode",
+        "noteVerboseLog": "开启详细日志，用于调试Hint切换",
+        "verboseLog": false,
+        "noteUxAffinity": "开启UX线程自动设置，固定高优先级的UX线程到大核，并限制低优先级线程的需求响应",
+        "uxAffinity": true,
+        "stateTransThd": {
+            "noteLoad": "系统负载为所有核心的负载总和，单个核心负载=频率(Ghz)*效率(A53@1.0g为100)*负载(%)",
+            "noteHeavyload": "进入HeavyLoad的系统负载阈值",
+            "noteIdleload": "退出HeavyLoad的系统负载阈值",
+            "noteBurstSlack": "在上一次HeavyLoad结束后，负载低于idle保持1.0秒，并且在requestBurstSlack这段时间内没有HeavyLoad请求，才能响应新的HeavyLoad",
+            "heavyLoad": 1440,
+            "idleLoad": 850,
+            "requestBurstSlack": 3000
+        },
+        "dispatch": [
+            {
+                "hint": "None",
+                "action": "normal",
+                "maxDuration": 0,
+                "note": "无Hint的常规状态"
+            },
+            {
+                "hint": "Tap",
+                "action": "interaction",
+                "maxDuration": 1500,
+                "note": "在刚触摸到屏幕切换的Hint"
+            },
+            {
+                "hint": "Swipe",
+                "action": "interaction",
+                "maxDuration": 3000,
+                "note": "在屏幕滑动一段距离后切换的Hint"
+            },
+            {
+                "hint": "HeavyLoad",
+                "action": "heavyLoad",
+                "maxDuration": 2000,
+                "note": "在Tap或Swipe检测到重负载后切换，负载降低后回落到Tap"
+            },
+            {
+                "hint": "AndroidAM",
+                "action": "amSwitch",
+                "maxDuration": 1500,
+                "note": "在ActivityManager活跃时触发的Hint，例如无input事件的屏下指纹解锁"
+            },
+            {
+                "hint": "Standby",
+                "action": "standby",
+                "maxDuration": 0,
+                "note": "屏幕熄灭时的Hint"
+            },
+            {
+                "hint": "SfLag",
+                "action": "sfLag",
+                "maxDuration": 15,
+                "note": "给Surfaceflinger的渲染提交出现滞后的Hint"
+            }
+        ]
+    },
+    "platform": {
+        "noteClusterCpuId": "集群的CPU代表id",
+        "clusterCpuId": [
+            0,
+            6
+        ],
+        "noteEfficiency": "每个CPU核心的的相对同频性能，以Cortex-A53@1.0g为100",
+        "efficiency": [
+            115,
+            115,
+            115,
+            115,
+            115,
+            115,
+            190,
+            190
+        ],
+        "knobs": [
+            {
+                "name": "cpuFreqMax",
+                "path": "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq",
+                "type": "cpufreq",
+                "enable": true,
+                "note": "集群最大频率，单位为100Mhz"
+            },
+            {
+                "name": "cpuFreqMin",
+                "path": "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq",
+                "type": "cpufreq",
+                "enable": true,
+                "note": "集群最小频率，单位为100Mhz"
+            },
+            {
+                "name": "cpuLoadBoost",
+                "path": "/sys/devices/system/cpu/cpu%d/sched_load_boost",
+                "type": "percpu",
+                "enable": true,
+                "note": "CPU调速器选频修正百分比，-100~+100"
+            },
+            {
+                "name": "cpuOnlineMin",
+                "path": "/sys/devices/system/cpu/cpu%d/core_ctl/min_cpus",
+                "type": "percluster",
+                "enable": true,
+                "note": "集群的最小核心启用数量，是任务调度器的参数并非热插拔参数"
+            },
+            {
+                "name": "topLowlat",
+                "path": "/dev/stune/top-app/schedtune.prefer_idle",
+                "type": "string",
+                "enable": true,
+                "note": "正在交互的App的schedtune.prefer_idle"
+            },
+            {
+                "name": "fgLowlat",
+                "path": "/dev/stune/foreground/schedtune.prefer_idle",
+                "type": "string",
+                "enable": true,
+                "note": "前台App的schedtune.prefer_idle"
+            },
+            {
+                "name": "topBoost",
+                "path": "/dev/stune/top-app/schedtune.boost",
+                "type": "string",
+                "enable": true,
+                "note": "正在交互的App的schedtune.boost"
+            },
+            {
+                "name": "fgBoost",
+                "path": "/dev/stune/foreground/schedtune.boost",
+                "type": "string",
+                "enable": true,
+                "note": "前台App的schedtune.boost"
+            },
+            {
+                "name": "ddrBwMax",
+                "path": "/sys/class/devfreq/soc:qcom,cpubw/max_freq",
+                "type": "string",
+                "enable": true,
+                "note": "DDR最大带宽"
+            },
+            {
+                "name": "ddrBwMin",
+                "path": "/sys/class/devfreq/soc:qcom,cpubw/min_freq",
+                "type": "string",
+                "enable": true,
+                "note": "DDR最小带宽"
+            },
+            {
+                "name": "l3LatBig",
+                "path": "/sys/class/devfreq/soc:qcom,l3-cpu6/mem_latency/ratio_ceil",
+                "type": "string",
+                "enable": true,
+                "note": "大核L3延迟控制，在L3命中率降低时，值越大越容易提升L3频率"
+            },
+            {
+                "name": "ddrLatBig",
+                "path": "/sys/class/devfreq/soc:qcom,memlat-cpu6/mem_latency/ratio_ceil",
+                "type": "string",
+                "enable": true,
+                "note": "大核DDR延迟控制，在DDR命中率降低时，值越大越容易提升DDR频率"
+            },
+            {
+                "name": "uxAffinity",
+                "path": "placeholder",
+                "type": "uxaffinity",
+                "enable": true,
+                "note": "动态设置是否固定高优先级UX线程到大核集群"
+            }
+        ]
+    },
+    "powermodes": [
+        {
+            "name": "balance",
+            "note": "均衡模式，比原厂略流畅的同时略省电",
+            "actions": {
+                "normal": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,1",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "5",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "1"
+                },
+                "interaction": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "15",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "2500",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "1"
+                },
+                "heavyLoad": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "5000",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "1"
+                },
+                "amSwitch": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "uxAffinity": "1"
+                },
+                "standby": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "3,3",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "2,0",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "0",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "sfLag": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "17,23",
+                    "ddrBwMin": "5000",
+                    "uxAffinity": "1"
+                }
+            }
+        },
+        {
+            "name": "powersave",
+            "note": "卡顿模式，保证基本流畅的同时尽可能降低功耗",
+            "actions": {
+                "normal": {
+                    "cpuFreqMax": "15,20",
+                    "cpuFreqMin": "3,6",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,1",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "5",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "interaction": {
+                    "cpuFreqMax": "15,17",
+                    "cpuFreqMin": "9,12",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "5",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "2500",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "1"
+                },
+                "heavyLoad": {
+                    "cpuFreqMax": "15,20",
+                    "cpuFreqMin": "12,15",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "15",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "4000",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "1"
+                },
+                "amSwitch": {
+                    "cpuFreqMax": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "4,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "15",
+                    "fgBoost": "0",
+                    "uxAffinity": "1"
+                },
+                "standby": {
+                    "cpuFreqMax": "5,3",
+                    "cpuFreqMin": "3,3",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "2,0",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "0",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "sfLag": {
+                    "cpuFreqMax": "15,20",
+                    "cpuFreqMin": "15,17",
+                    "ddrBwMin": "5000",
+                    "uxAffinity": "1"
+                }
+            }
+        },
+        {
+            "name": "performance",
+            "note": "费电模式，保证费电的同时多一点流畅度",
+            "actions": {
+                "normal": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "interaction": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "2500",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "0"
+                },
+                "heavyLoad": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "6000",
+                    "l3LatBig": "20000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "0"
+                },
+                "amSwitch": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "12,13",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "uxAffinity": "0"
+                },
+                "standby": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "3,3",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "2,0",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "0",
+                    "fgBoost": "0",
+                    "ddrBwMax": "6000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "sfLag": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "17,23",
+                    "ddrBwMin": "5000",
+                    "uxAffinity": "0"
+                }
+            }
+        }
+    ]
+}
