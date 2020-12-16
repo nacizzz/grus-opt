@@ -47,7 +47,7 @@ REPLACE="
 print_modname() {
   ui_print "*******************************"
   ui_print "        作者：酷安@leleleha      "
-  ui_print "        当前版本:v2.0.4         "
+  ui_print "        当前版本:v2.0.5         "
   ui_print "更新日志及其它使用事项可以在酷安动态找到"
   ui_print "     在重启之前一定一定要去看动态！！！"
   ui_print "     在重启之前一定一定要去看动态！！！"
@@ -66,6 +66,14 @@ print_modname() {
   pm disable com.miui.phrase
   ui_print "已冻结部分应用"
   
+  if [[ -f /data/adb/modules/uperf/module.prop ]]
+  then
+  ui_print "      检测到已安装uperf      "
+  else
+  ui_print "      检测到未安装uperf，建议安装！      "
+  ui_print "      github.com/yc9559/uperf      "
+  fi
+
 #创建配置文件
   touch /storage/emulated/0/Android/panel_grus-opt.txt
   echo "
@@ -74,7 +82,9 @@ print_modname() {
 #请移至酷安@leleleha的动态查看更新日志和注意事项
   
 #修改开机默认性能配置
-#powersave省电 balance平衡 performance性能(费电)
+#powersave省电 
+#balance平衡（系统默认配置）
+#performance性能 （高耗电）
 #默认省电
 normal_power_mode=powersave" > /storage/emulated/0/Android/panel_grus-opt.txt
 
