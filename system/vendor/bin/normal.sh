@@ -71,6 +71,6 @@ echo "应用$power_config1配置成功"
 echo " "
 
 echo "开始运行优化脚本"
-echo ""
+echo " "
 log_file=/cache/grus-opt.log
 sh /vendor/bin/grus_opt.sh >> $log_file 2>&1
