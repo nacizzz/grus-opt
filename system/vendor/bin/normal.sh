@@ -70,5 +70,7 @@ power_config1=`cat /data/uperf_powermode`
 echo "应用$power_config1配置成功"
 echo " "
 
-echo "全部完成"
-echo "作者:酷安@leleleha"
+echo "开始运行优化脚本"
+echo ""
+log_file=/cache/grus-opt.log
+sh /vendor/bin/grus_opt.sh >> $log_file 2>&1
