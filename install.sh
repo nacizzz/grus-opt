@@ -91,6 +91,15 @@ normal_power_mode=powersave
 #修改需要切换到的性能配置
 默认game
 switch_power_mode=game
+
+#修改需要切换的应用包名
+#提供五个应用
+#例如 Package0="com.tencent.sgame.tmgp"
+Package0=""
+Package1=""
+Package2=""
+Package3=""
+Package4=""
 " > /storage/emulated/0/Android/panel_grus-opt.txt
 
 #应用uperf开机默认配置
