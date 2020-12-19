@@ -85,8 +85,13 @@ print_modname() {
 #powersave省电 
 #balance平衡（系统默认配置）
 #performance性能 （高耗电）
-#默认省电
-normal_power_mode=powersave" > /storage/emulated/0/Android/panel_grus-opt.txt
+#默认powersave
+normal_power_mode=powersave
+
+#修改需要切换到的性能配置
+默认game
+switch_power_mode=game
+" > /storage/emulated/0/Android/panel_grus-opt.txt
 
 #应用uperf开机默认配置
 #在开机时以最高性能运行，减少卡顿
