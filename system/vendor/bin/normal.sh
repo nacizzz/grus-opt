@@ -22,9 +22,9 @@ done
 
 echo "系统启动完成"
 echo " "
-echo "等待30秒，提前应用配置会被系统覆盖"
+echo "等待45秒，提前应用配置会被系统覆盖"
 echo " "
-sleep 30
+sleep 45
 
 while [ 1 = 1 ]
 do
