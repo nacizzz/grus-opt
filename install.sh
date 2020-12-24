@@ -102,6 +102,10 @@ Package3=""
 Package4=""
 " > /storage/emulated/0/Android/panel_grus-opt.txt
 
+if [[ -f /cache/grus-opt.log ]]; then
+touch /cache/grus-opt.log
+fi
+
 #应用uperf开机默认配置
 #在开机时以最高性能运行，减少卡顿
   echo "default_mode=performance" > /storage/emulated/0/Android/panel_uperf.txt
