@@ -183,7 +183,7 @@
             "actions": {
                 "normal": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "12,13",
+                    "cpuFreqMin": "3,3",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,1",
                     "topLowlat": "0",
@@ -198,7 +198,7 @@
                 },
                 "interaction": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "12,13",
+                    "cpuFreqMin": "3,3",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -228,7 +228,7 @@
                 },
                 "amSwitch": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "12,13",
+                    "cpuFreqMin": "3,3",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
                     "cpuOnlineMin": "6,2",
                     "topLowlat": "1",
@@ -254,7 +254,7 @@
                 },
                 "sfLag": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "17,23",
+                    "cpuFreqMin": "15,20",
                     "ddrBwMin": "5000",
                     "uxAffinity": "1"
                 }
@@ -265,7 +265,7 @@
             "note": "卡顿模式，保证基本流畅的同时尽可能降低功耗",
             "actions": {
                 "normal": {
-                    "cpuFreqMax": "15,20",
+                    "cpuFreqMax": "13,19",
                     "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,1",
@@ -280,8 +280,8 @@
                     "uxAffinity": "0"
                 },
                 "interaction": {
-                    "cpuFreqMax": "15,17",
-                    "cpuFreqMin": "9,12",
+                    "cpuFreqMax": "13,19",
+                    "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -295,8 +295,8 @@
                     "uxAffinity": "1"
                 },
                 "heavyLoad": {
-                    "cpuFreqMax": "15,20",
-                    "cpuFreqMin": "12,15",
+                    "cpuFreqMax": "13,20",
+                    "cpuFreqMin": "12,13",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -310,7 +310,7 @@
                     "uxAffinity": "1"
                 },
                 "amSwitch": {
-                    "cpuFreqMax": "12,13",
+                    "cpuFreqMax": "13,19",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -320,7 +320,7 @@
                     "uxAffinity": "1"
                 },
                 "standby": {
-                    "cpuFreqMax": "5,3",
+                    "cpuFreqMax": "13,19",
                     "cpuFreqMin": "3,3",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "2,0",
@@ -335,8 +335,8 @@
                     "uxAffinity": "0"
                 },
                 "sfLag": {
-                    "cpuFreqMax": "15,20",
-                    "cpuFreqMin": "15,17",
+                    "cpuFreqMax": "13,19",
+                    "cpuFreqMin": "13,17",
                     "ddrBwMin": "5000",
                     "uxAffinity": "1"
                 }
