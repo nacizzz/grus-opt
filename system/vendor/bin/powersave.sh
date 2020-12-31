@@ -1,12 +1,4 @@
-#设置变量
-little_up=/sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-little_down=/sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-little_hispeed=/sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_load
-big_up=/sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us
-big_down=/sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us
-big_hispeed=/sys/devices/system/cpu/cpufreq/policy6/schedutil/hispeed_load
-cpu4_online=/sys/devices/system/cpu/cpu4/online
-cpu5_online=/sys/devices/system/cpu/cpu5/online
+. /data/adb/modules/mi9se/file/config.sh
 #设置权限
 chmod 644 $little_up
 chmod 644 $little_down
@@ -35,4 +27,11 @@ chmod 444 $big_hispeed
 chmod 444 $cpu4_online
 chmod 444 $cpu5_online
 #应用uperf模式
+if [[ -f $uperf_flag ]]; then
 echo powersave > /data/uperf_powermode
+echo '切换到powersave模式
+'
+else
+echo '切换uperf模式失败，请安装uperf
+'
+fi
