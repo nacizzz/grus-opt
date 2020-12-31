@@ -10,6 +10,13 @@ echo "[$($BusyBox date +%y-%m-%d\ %H:%M:%S)]$1
 "
 }
 
+if [[ -f /cache/grus-opt.log ]]; then
+touch /cache/grus-opt.log
+fi
+if [[ -f /cache/grus_opt_mode ]]; then
+touch /cache/grus_opt_mode
+fi
+
 log "等待系统启动"
 
 while [ 1 = 1 ]
