@@ -69,9 +69,12 @@ function get_prop() {
 power_config=$(get_prop normal_power_mode)
 
 sh "/vendor/bin/$power_config.sh"
-sleep 3
-power_config1=`cat /data/uperf_powermode`
-log "应用$power_config1配置成功"
+sleep 1
+power_config1=`cat /cache/grus_opt_mode`
+if [[ $power_config == $power_config1 ]]; then
+log "应用$power_config配置成功"
+else
+log '应用失败，请截图log反馈'
 
 log "开始运行优化脚本"
 log_file=/cache/grus-opt.log
