@@ -29,9 +29,7 @@ chmod 444 $cpu5_online
 #应用uperf模式
 if [[ -f $uperf_flag ]]; then
 echo balance > /data/uperf_powermode
-echo '切换到game模式
-'
+log "切换到game模式"
 else
-echo '切换uperf模式失败，请安装uperf
-'
+log "切换uperf模式失败，请安装uperf"
 fi
