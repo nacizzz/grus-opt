@@ -11,10 +11,25 @@ echo "[$($BusyBox date +%y-%m-%d\ %H:%M:%S)]$1
 }
 
 if [[ -f /cache/grus-opt.log ]]; then
+log "检测到日志文件已存在，跳过创建"
+else
 touch /cache/grus-opt.log
+ if [[ -f /cache/grus-opt.log ]]; then
+ log "创建日志文件成功"
+ else
+ log "创建日志文件失败，请截图log截图发给我"
+ fi
 fi
+
 if [[ -f /cache/grus_opt_mode ]]; then
+log "检测到当前模式信息已存在，跳过创建"
+else
 touch /cache/grus_opt_mode
+ if [[ -f /cache/grus-opt.log ]]; then
+ log "创建当前模式信息成功"
+ else
+ log "创建当前模式信息失败，请截图log截图发给我"
+ fi
 fi
 
 log "等待系统启动"
@@ -74,8 +89,9 @@ function get_prop() {
   cat $config | grep -v '^#' | grep "^$1=" | cut -f2 -d '='
 }
 power_config=$(get_prop normal_power_mode)
+log_file=/cache/grus-opt.log
 
-sh "/vendor/bin/$power_config.sh"
+sh "/vendor/bin/$power_config.sh" >> $log_file 2>&1
 sleep 1
 power_config1=`cat /cache/grus_opt_mode`
 if [[ $power_config == $power_config1 ]]; then
@@ -85,5 +101,4 @@ log '应用失败，请截图log反馈'
 fi
 
 log "开始运行优化脚本"
-log_file=/cache/grus-opt.log
 sh /vendor/bin/grus_opt.sh >> $log_file 2>&1
