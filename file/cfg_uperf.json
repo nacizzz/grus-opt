@@ -183,7 +183,7 @@
             "actions": {
                 "normal": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,3",
+                    "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,1",
                     "topLowlat": "0",
@@ -198,7 +198,7 @@
                 },
                 "interaction": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,3",
+                    "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -228,7 +228,7 @@
                 },
                 "amSwitch": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,3",
+                    "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
                     "cpuOnlineMin": "6,2",
                     "topLowlat": "1",
@@ -295,7 +295,7 @@
                     "uxAffinity": "1"
                 },
                 "heavyLoad": {
-                    "cpuFreqMax": "13,20",
+                    "cpuFreqMax": "13,19",
                     "cpuFreqMin": "12,13",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
@@ -335,7 +335,7 @@
                     "uxAffinity": "0"
                 },
                 "sfLag": {
-                    "cpuFreqMax": "13,19",
+                    "cpuFreqMax": "15,19",
                     "cpuFreqMin": "13,17",
                     "ddrBwMin": "5000",
                     "uxAffinity": "1"
