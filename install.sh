@@ -45,14 +45,8 @@ REPLACE="
 "
 
 print_modname() {
-  ui_print "*******************************"
-  ui_print "        作者：酷安@leleleha      "
-  ui_print "        当前版本:v2.0.6         "
-  ui_print "更新日志及其它使用事项可以在酷安动态找到"
-  ui_print "     在重启之前一定一定要去看动态！！！"
-  ui_print "     在重启之前一定一定要去看动态！！！"
-  ui_print "     在重启之前一定一定要去看动态！！！"
-  ui_print "*******************************"
+  ui_print "作者：酷安@leleleha"
+  ui_print "当前版本:v2.0.7"
 }
 
   pm disable com.xiaomi.simactivate.service
@@ -62,16 +56,15 @@ print_modname() {
   pm disable com.unionpay.tsmservice.mi
   pm disable com.qualcomm.wfd.service
   pm disable com.qualcomm.qti.poweroffalarm
-  pm disable com.miui.yellowpage4
   pm disable com.miui.phrase
   ui_print "已冻结部分应用"
   
   if [[ -f /data/adb/modules/uperf/module.prop ]];
   then
-  ui_print "      检测到已安装uperf      "
+  ui_print "检测到已安装uperf"
   else
-  ui_print "      检测到未安装uperf，建议安装！      "
-  ui_print "      github.com/yc9559/uperf      "
+  ui_print "检测到未安装uperf，建议安装"
+  ui_print "github.com/yc9559/uperf"
   fi
 
 #创建配置文件
