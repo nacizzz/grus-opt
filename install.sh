@@ -47,7 +47,7 @@ REPLACE="
 print_modname() {
   ui_print "*******************************"
   ui_print "        作者：酷安@leleleha      "
-  ui_print "        当前版本:v2.0.5         "
+  ui_print "        当前版本:v2.0.6         "
   ui_print "更新日志及其它使用事项可以在酷安动态找到"
   ui_print "     在重启之前一定一定要去看动态！！！"
   ui_print "     在重启之前一定一定要去看动态！！！"
@@ -77,29 +77,12 @@ print_modname() {
 #创建配置文件
   touch /storage/emulated/0/Android/panel_grus-opt.txt
   echo "
-#这是小米9se优化模块的配置文件
-#如果你是在不知道的情况下看到此文件
-#请移至酷安@leleleha的动态查看更新日志和注意事项
-  
 #修改开机默认性能配置
 #powersave省电 
 #balance平衡（系统默认配置）
 #performance性能 （高耗电）
 #默认powersave
 normal_power_mode=powersave
-
-#修改需要切换到的性能配置
-默认game
-switch_power_mode=game
-
-#修改需要切换的应用包名
-#提供五个应用
-#例如 Package0="com.tencent.sgame.tmgp"
-Package0=""
-Package1=""
-Package2=""
-Package3=""
-Package4=""
 " > /storage/emulated/0/Android/panel_grus-opt.txt
 
 #应用uperf开机默认配置
