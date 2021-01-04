@@ -82,6 +82,7 @@ if [[ $power_config == $power_config1 ]]; then
 log "应用$power_config配置成功"
 else
 log '应用失败，请截图log反馈'
+fi
 
 log "开始运行优化脚本"
 log_file=/cache/grus-opt.log
