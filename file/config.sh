@@ -8,3 +8,9 @@ cpu4_online=/sys/devices/system/cpu/cpu4/online
 cpu5_online=/sys/devices/system/cpu/cpu5/online
 
 uperf_flag=/data/adb/modules/uperf/module.prop
+
+function log()
+{
+echo "[$($BusyBox date +%y-%m-%d\ %H:%M:%S)]$1
+"
+}
