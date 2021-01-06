@@ -34,7 +34,6 @@ log "切换到game模式"
 #应用uperf模式
 if [[ -f $uperf_flag ]]; then
 echo balance > /data/uperf_powermode
-log "切换到game模式"
 else
 log "切换uperf模式失败，请安装uperf"
 fi
