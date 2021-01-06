@@ -26,6 +26,8 @@ chmod 444 $big_down
 chmod 444 $big_hispeed
 chmod 444 $cpu4_online
 chmod 444 $cpu5_online
+#设置schedboost
+echo 1 > $schedboost
 #应用uperf模式
 if [[ -f $uperf_flag ]]; then
 echo balance > /data/uperf_powermode
