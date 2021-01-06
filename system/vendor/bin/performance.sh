@@ -1,4 +1,4 @@
-. /data/adb/modules/mi9se/file/config.sh
+&. /data/adb/modules/mi9se/file/config.sh
 #设置权限
 chmod 644 $little_up
 chmod 644 $little_down
@@ -34,7 +34,6 @@ log "切换到performance模式"
 #应用uperf模式
 if [[ -f $uperf_flag ]]; then
 echo performance > /data/uperf_powermode
-log "切换到performance模式"
 else
 log "切换uperf模式失败，请安装uperf"
 fi
