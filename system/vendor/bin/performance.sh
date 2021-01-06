@@ -1,4 +1,4 @@
-&. /data/adb/modules/mi9se/file/config.sh
+. /data/adb/modules/mi9se/file/config.sh
 #设置权限
 chmod 644 $little_up
 chmod 644 $little_down
