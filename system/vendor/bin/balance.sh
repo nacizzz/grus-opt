@@ -29,10 +29,12 @@ chmod 444 $cpu4_online
 chmod 444 $cpu5_online
 #设置schedboost
 echo 0 > $schedboost
+#提示当前模式
+echo balance > /cache/grus_opt_mode
+log "切换到balance模式"
 #应用uperf模式
 if [[ -f $uperf_flag ]]; then
 echo balance > /data/uperf_powermode
-log "切换到balance模式"
 else
 log "切换uperf模式失败，请安装uperf"
 fi
