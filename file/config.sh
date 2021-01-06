@@ -6,8 +6,8 @@ big_down=/sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us
 big_hispeed=/sys/devices/system/cpu/cpufreq/policy6/schedutil/hispeed_load
 cpu4_online=/sys/devices/system/cpu/cpu4/online
 cpu5_online=/sys/devices/system/cpu/cpu5/online
-
 uperf_flag=/data/adb/modules/uperf/module.prop
+sched=/dev/stune/foreground/schedtune.boost
 
 function log()
 {
