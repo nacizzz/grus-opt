@@ -21,8 +21,8 @@ chmod 444 $big_up
 chmod 444 $big_down
 chmod 444 $big_hispeed
 #设置gpu
-echo "5" > $gpu_minpowerlever
-echo "180" > $gpu_minfreq
+echo "2" > $gpu_minpowerlever
+echo "430" > $gpu_minfreq
 #提示当前模式
 echo game > /cache/grus_opt_mode
 log "切换到game模式"
