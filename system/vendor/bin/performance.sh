@@ -26,8 +26,9 @@ chmod 444 $big_down
 chmod 444 $big_hispeed
 chmod 444 $cpu4_online
 chmod 444 $cpu5_online
-#设置schedboost
-echo 1 > $schedboost
+#设置gpu
+echo "2" > $gpu_minpowerlever
+echo "430" > $gpu_minfreq
 #提示当前模式
 echo performance > /cache/grus_opt_mode
 log "切换到performance模式"
