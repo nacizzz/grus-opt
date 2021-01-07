@@ -177,13 +177,13 @@
         ]
     },
     "powermodes": [
-        {
+         {
             "name": "balance",
             "note": "均衡模式，比原厂略流畅的同时略省电",
             "actions": {
                 "normal": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,6",
+                    "cpuFreqMin": "5,8",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,1",
                     "topLowlat": "0",
@@ -197,8 +197,8 @@
                     "uxAffinity": "1"
                 },
                 "interaction": {
-                    "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,6",
+                    "cpuFreqMax": "15,20",
+                    "cpuFreqMin": "11,12",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -213,7 +213,7 @@
                 },
                 "heavyLoad": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "12,13",
+                    "cpuFreqMin": "15,17",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
                     "cpuOnlineMin": "6,2",
                     "topLowlat": "1",
@@ -228,7 +228,7 @@
                 },
                 "amSwitch": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "3,6",
+                    "cpuFreqMin": "11,12",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
                     "cpuOnlineMin": "6,2",
                     "topLowlat": "1",
@@ -254,8 +254,91 @@
                 },
                 "sfLag": {
                     "cpuFreqMax": "17,23",
-                    "cpuFreqMin": "15,20",
+                    "cpuFreqMin": "17,23",
                     "ddrBwMin": "5000",
+                    "uxAffinity": "1"
+                }
+            }
+        },
+        {
+            "name": "game",
+            "note": "游戏模式",
+            "actions": {
+                "normal": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,9",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "15",
+                    "fgBoost": "0",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "1"
+                },
+                "interaction": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,9",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "20",
+                    "fgBoost": "0",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "2500",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "1"
+                },
+                "heavyLoad": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,20",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "5000",
+                    "l3LatBig": "8000",
+                    "ddrLatBig": "800",
+                    "uxAffinity": "1"
+                },
+                "amSwitch": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,9",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-12,-12",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "1",
+                    "fgLowlat": "1",
+                    "topBoost": "25",
+                    "fgBoost": "10",
+                    "uxAffinity": "1"
+                },
+                "standby": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,9",
+                    "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
+                    "cpuOnlineMin": "6,2",
+                    "topLowlat": "0",
+                    "fgLowlat": "0",
+                    "topBoost": "0",
+                    "fgBoost": "0",
+                    "ddrBwMax": "7000",
+                    "ddrBwMin": "0",
+                    "l3LatBig": "4000",
+                    "ddrLatBig": "400",
+                    "uxAffinity": "0"
+                },
+                "sfLag": {
+                    "cpuFreqMax": "17,23",
+                    "cpuFreqMin": "15,20",
+                    "ddrBwMin": "7000",
                     "uxAffinity": "1"
                 }
             }
