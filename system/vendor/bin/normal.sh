@@ -15,7 +15,7 @@ log "检测到日志文件已存在，跳过创建"
 else
 touch /cache/grus-opt.log
  if [[ -f /cache/grus-opt.log ]]; then
- log "创建日志文件成功"
+ log "创建日志文件完成"
  else
  log "创建日志文件失败，请截图log截图发给我"
  fi
@@ -25,8 +25,8 @@ if [[ -f /cache/grus_opt_mode ]]; then
 log "检测到当前模式信息已存在，跳过创建"
 else
 touch /cache/grus_opt_mode
- if [[ -f /cache/grus-opt.log ]]; then
- log "创建当前模式信息成功"
+ if [[ -f /cache/grus_opt_mode ]]; then
+ log "创建当前模式信息完成"
  else
  log "创建当前模式信息失败，请截图log截图发给我"
  fi
@@ -56,28 +56,19 @@ then
 log "正在加载模块配置..."
 touch $config1
 cp $config $config1
+log "加载模块配置完成"
 break
 fi
 done
-
-cat1=`cat $config`
-cat2=`cat $config1`
-if [[ $cat1 == $cat2 ]]; then
-log "加载模块配置成功"
-fi
 
 log "正在加载uperf配置"
 
 uperf_config=/data/adb/modules/mi9se/file/cfg_uperf.json
 uperf_config1=/data/adb/modules/uperf/config/cfg_uperf.json
-if [[ -f $uperf_config ]];
+if [[ -f $uperf_config1 ]];
 then
 cp $uperf_config $uperf_config1
-cat3=`cat $config`
-cat4=`cat $config1`
- if [[ $cat3 == $cat4 ]]; then
- log "加载uperf配置成功"
- fi
+log "加载uperf配置完成"
 else
 log "未安装uperf，加载失败
 uperf下载地址:github.com/yc9559/uperf/releases"
@@ -95,9 +86,9 @@ sh "/vendor/bin/$power_config.sh" >> $log_file 2>&1
 sleep 1
 power_config1=`cat /cache/grus_opt_mode`
 if [[ $power_config == $power_config1 ]]; then
-log "应用$power_config配置成功"
+log "应用$power_config配置完成"
 else
-log '应用失败，请截图log反馈'
+log "应用失败，请截图log反馈"
 fi
 
 log "开始运行优化脚本"
