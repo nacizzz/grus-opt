@@ -6,6 +6,14 @@
 echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
 log "关闭核心控制成功"
 
+#cpuset
+echo "0-1" > /dev/cpuset/background/cpus
+echo "0-2" > /dev/cpuset/system-background/cpus
+echo "0-3" > /dev/cpuset/restricted/cpus
+echo "0-7" > /dev/cpuset/foreground/cpus
+echo "0-7" > /dev/cpuset/top-app/cpus
+log "设置cpuset成功"
+
 #杀掉不必要的进程
 killall -9 com.miui.guardprovider 2>/dev/null
 killall -9 com.android.mms 2>/dev/null
