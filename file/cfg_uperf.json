@@ -363,8 +363,8 @@
                     "uxAffinity": "0"
                 },
                 "interaction": {
-                    "cpuFreqMax": "13,19",
-                    "cpuFreqMin": "3,6",
+                    "cpuFreqMax": "15,20",
+                    "cpuFreqMin": "5,9",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
                     "topLowlat": "0",
@@ -378,7 +378,7 @@
                     "uxAffinity": "1"
                 },
                 "heavyLoad": {
-                    "cpuFreqMax": "13,19",
+                    "cpuFreqMax": "17,22",
                     "cpuFreqMin": "12,13",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "4,2",
@@ -404,7 +404,7 @@
                 },
                 "standby": {
                     "cpuFreqMax": "13,19",
-                    "cpuFreqMin": "3,3",
+                    "cpuFreqMin": "3,6",
                     "cpuLoadBoost": "-6,-6,-6,-6,-6,-6,-18,-18",
                     "cpuOnlineMin": "2,0",
                     "topLowlat": "0",
