@@ -14,16 +14,6 @@ print_modname() {
   ui_print "- 当前版本:v2.0.8"
   ui_print "- 默认性能配置为powersave(省电)"
 }
-
-  pm disable com.xiaomi.simactivate.service
-  pm disable com.xiaomi.metoknlp
-  pm disable com.xiaomi.location.fused
-  pm disable com.wapi.wapicertmanage
-  pm disable com.unionpay.tsmservice.mi
-  pm disable com.qualcomm.wfd.service
-  pm disable com.qualcomm.qti.poweroffalarm
-  pm disable com.miui.phrase
-  ui_print "- 已冻结部分应用"
   
   if [[ -f /data/adb/modules/uperf/module.prop ]];
   then
