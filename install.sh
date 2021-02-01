@@ -12,7 +12,8 @@ REPLACE="
 print_modname() {
   ui_print "- 作者：酷安@leleleha"
   ui_print "- 当前版本:v2.0.8"
-  ui_print "- 默认性能配置为powersave(省电)"
+  ui_print "- 默认性能配置为balance"
+  ui_print "- 比官方更流畅的同时更省电"
 }
   
   if [[ -f /data/adb/modules/uperf/module.prop ]];
@@ -27,10 +28,10 @@ print_modname() {
   echo "
 #修改开机默认性能配置
 #powersave省电 
-#balance平衡（系统默认配置）
+#balance平衡
 #performance性能 （高耗电）
-#默认powersave
-normal_power_mode=powersave
+#默认balance
+normal_power_mode=balance
 " > /storage/emulated/0/Android/panel_grus-opt.txt
 
   echo "default_mode=performance" > /storage/emulated/0/Android/panel_uperf.txt

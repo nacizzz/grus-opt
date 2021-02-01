@@ -1,6 +1,6 @@
 id=mi9se
 name=Grus-Optimization
-version=2.0.7
-versionCode=13
+version=2.0.8
+versionCode=14
 author=leleleha
 description=提供Schedutil参数优化并切换Uperf模式，更加省电/流畅。以及一些玄学优化。在内置存储/Android/panel_grus-opt下修改开机默认性能配置，运行日志在/cache/grus-opt.log
